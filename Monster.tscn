@@ -1,0 +1,119 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Monster.gd" type="Script" id=1]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_007.png" type="Texture" id=2]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_004.png" type="Texture" id=3]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_003.png" type="Texture" id=4]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_000.png" type="Texture" id=5]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_002.png" type="Texture" id=6]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_006.png" type="Texture" id=7]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_001.png" type="Texture" id=8]
+[ext_resource path="res://monster/_02/02-Fly/__Bat02_Fly_005.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "8",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "5",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "4",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "1",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "3",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "7",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "2",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "6",
+"speed": 3.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
+
+[node name="Monster" type="RigidBody2D"]
+
+position = Vector2( 479.33, 289.484 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+min_speed = 100
+max_speed = 900
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
+
+scale = Vector2( 0.15, 0.15 )
+frames = SubResource( 1 )
+animation = "1"
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( 0.281891, -2.68591 )
+scale = Vector2( 2.85352, 0.762212 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="." index="2"]
+
+position = Vector2( 0.281891, -2.68591 )
+scale = Vector2( 2.85352, 0.762212 )
+rect = Rect2( -10, -10, 20, 20 )
+pause_animations = true
+freeze_bodies = true
+pause_particles = true
+pause_animated_sprites = true
+process_parent = false
+physics_process_parent = false
+
+[connection signal="screen_exited" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_exited"]
+
+
