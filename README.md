@@ -8,6 +8,9 @@ Made a winning point at 60 seconds.
 Still working on adding laser to shot one monster at a time.
 
 
+Play the game live at : https://dustintnguyen.itch.io/dodge-the-bats
+
+
 
 Image credit:
 "Skull in a UFO" by bevouliin.com from opengameart.org
